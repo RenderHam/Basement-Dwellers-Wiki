@@ -5,3 +5,5 @@ dist/
 # Exclude AI skills and prompts 
 .agents/
 PROMPT.md
+.wrangler/
+basement-dwellers-wiki.production.*.build.log
