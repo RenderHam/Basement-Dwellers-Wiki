@@ -1,0 +1,57 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import { HOME_TOC } from "../../data/home-toc";
+
+const lastIndex = HOME_TOC.length - 1;
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6 sm:pb-24">
+  <SectionHeading
+    eyebrow="Table of contents"
+    title="On this wiki"
+    description="Seven stops from your first launch to full dweller status — start anywhere."
+  />
+
+  <ul
+    class="mt-10 grid overflow-hidden rounded-xl border border-line bg-surface shadow-[inset_0_1px_0_rgba(237,228,214,0.05)] md:grid-cols-2 md:px-4"
+  >
+    {
+      HOME_TOC.map((entry, i) => (
+        <li>
+          <a
+            href={entry.href}
+            class:list={[
+              "group -mx-3 flex gap-4 rounded-lg px-6 py-5 transition-colors duration-200 hover:bg-raised/50 md:-mx-3 md:px-3",
+              i !== lastIndex && "border-b border-line/70",
+            ]}
+          >
+            <span class="pt-0.5 font-mono text-xs text-muted transition-colors duration-200 group-hover:text-accent">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-display text-base font-semibold text-bone transition-colors duration-200 group-hover:text-accent">
+                {entry.name}
+              </span>
+              <span class="mt-1 block text-sm leading-relaxed text-muted">
+                {entry.description}
+              </span>
+            </span>
+            <svg
+              class="mt-1 size-4 shrink-0 self-start text-accent opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,45 @@
+---
+import Card from "../ui/Card.astro";
+import Badge from "../ui/Badge.astro";
+import Button from "../ui/Button.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import { SERVER_FEATURES } from "../../data/features";
+
+const PREVIEW_IDS = ["biomes", "jobs", "aircraft"] as const;
+const previewFeatures = PREVIEW_IDS.map((id) => SERVER_FEATURES.find((f) => f.id === id)!);
+---
+
+<section class="border-t border-line mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+  <SectionHeading
+    eyebrow="Featured"
+    title="A taste of the basement"
+    description="Biomes, jobs, and aircraft — just three of the reasons the basement feels alive."
+  />
+  <div class="mt-10 grid gap-4 sm:grid-cols-3">
+    {
+      previewFeatures.map((feature) => (
+        <Card hover>
+          <Badge variant="neutral" class="mb-3">
+            {feature.title}
+          </Badge>
+          <p class="text-sm leading-relaxed text-muted">{feature.description}</p>
+          <Button href="/features" variant="ghost" size="sm" class="mt-4">
+            View all features
+            <svg
+              class="size-3.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+            </svg>
+          </Button>
+        </Card>
+      ))
+    }
+  </div>
+</section>

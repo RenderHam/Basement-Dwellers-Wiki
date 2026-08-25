@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #171310;
+  --color-surface: #201a15;
+  --color-raised: #2a221b;
+  --color-line: #3a2f25;
+  --color-bone: #ede4d6;
+  --color-muted: #a89880;
+  --color-accent: #e9a13b;
+  --color-copper: #c96f2e;
+  --color-moss: #8fa36b;
+
+  --font-display: "Bricolage Grotesque Variable", sans-serif;
+  --font-sans: "Instrument Sans Variable", sans-serif;
+  --font-mono: "JetBrains Mono Variable", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-bone antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted;
+  }
+
+  .strata-hero {
+    background-color: var(--color-surface);
+    background-image:
+      radial-gradient(
+        120% 90% at 50% -25%,
+        color-mix(in oklab, var(--color-accent) 14%, transparent),
+        transparent 62%
+      ),
+      linear-gradient(to bottom, transparent 0%, var(--color-bg) 96%),
+      repeating-linear-gradient(
+        179deg,
+        transparent 0,
+        transparent 18px,
+        color-mix(in oklab, var(--color-line) 60%, transparent) 18px,
+        color-mix(in oklab, var(--color-line) 60%, transparent) 19.5px,
+        transparent 19.5px,
+        transparent 46px,
+        color-mix(in oklab, var(--color-raised) 90%, transparent) 46px,
+        color-mix(in oklab, var(--color-raised) 90%, transparent) 48px,
+        transparent 48px,
+        transparent 82px,
+        color-mix(in oklab, var(--color-line) 35%, transparent) 82px,
+        color-mix(in oklab, var(--color-line) 35%, transparent) 83px,
+        transparent 83px,
+        transparent 118px
+      );
+  }
+}

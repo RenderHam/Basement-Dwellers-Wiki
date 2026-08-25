@@ -1,0 +1,26 @@
+---
+import Button from "../ui/Button.astro";
+import CopyField from "../ui/CopyField.astro";
+import { SITE } from "../../data/site";
+---
+
+<section class="strata-hero">
+  <div class="mx-auto w-full max-w-6xl px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-24">
+    <p class="eyebrow">Modded Minecraft Server</p>
+    <h1
+      class="mt-6 max-w-3xl font-display text-4xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl"
+    >
+      <span class="text-muted">The best adventures</span>
+      <br />
+      <span class="text-accent">start below the surface.</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+      {SITE.description}
+    </p>
+    <div class="mt-9 flex flex-wrap items-center gap-3">
+      <Button href="/tutorial" size="lg">Start the tutorial</Button>
+      <Button href="/blue-map" variant="outline" size="lg">Open the live map</Button>
+    </div>
+    <CopyField value={SITE.serverIp} label="Server IP" class="mt-12 max-w-sm" />
+  </div>
+</section>

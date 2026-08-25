@@ -1,0 +1,31 @@
+---
+import Badge from "../ui/Badge.astro";
+import Card from "../ui/Card.astro";
+
+interface Props {
+  name: string;
+  handle: string;
+  role: string;
+  tag: string;
+}
+
+const { name, handle, role, tag } = Astro.props;
+const initial = name.charAt(0);
+---
+
+<Card hover class="flex flex-col gap-4">
+  <div class="flex items-start justify-between gap-3">
+    <div
+      class="from-accent to-copper text-bg flex size-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br font-display text-lg font-bold"
+      aria-hidden="true"
+    >
+      {initial}
+    </div>
+    <Badge variant={tag.toLowerCase() === "owner" ? "amber" : "neutral"}>{tag}</Badge>
+  </div>
+  <div>
+    <h3 class="font-display text-lg font-bold tracking-tight text-bone">{name}</h3>
+    <p class="mt-0.5 font-mono text-xs text-muted">{handle}</p>
+    <p class="mt-2 text-sm leading-relaxed text-muted">{role}</p>
+  </div>
+</Card>

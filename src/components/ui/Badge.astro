@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: "amber" | "moss" | "neutral";
+  class?: string;
+}
+
+const { variant = "neutral", class: className } = Astro.props;
+
+const variants: Record<NonNullable<Props["variant"]>, string> = {
+  amber: "border-accent/40 bg-accent/10 text-accent",
+  moss: "border-moss/40 bg-moss/10 text-moss",
+  neutral: "border-line bg-raised text-muted",
+};
+---
+
+<span
+  class:list={[
+    "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[11px] font-medium uppercase tracking-widest",
+    variants[variant],
+    className,
+  ]}
+>
+  <slot />
+</span>

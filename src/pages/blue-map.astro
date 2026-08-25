@@ -1,0 +1,166 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Card from "../components/ui/Card.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import ContourPreview from "../components/bluemap/ContourPreview.astro";
+import { SITE } from "../data/site";
+---
+
+<Layout title="Blue Map">
+  <Header />
+  <main>
+    <section class="strata-hero border-b border-line">
+      <div class="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+        <p class="eyebrow">Live map</p>
+        <h1
+          class="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-bone sm:text-5xl"
+        >
+          See the whole underworld — live.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          BlueMap renders our world straight into your browser as it grows. Scout base locations,
+          follow roads across the surface, and watch new tunnels appear in real time.
+        </p>
+      </div>
+    </section>
+
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <section class="py-16 sm:py-20" aria-labelledby="map-cta-heading">
+        <Card class="grid gap-8 lg:grid-cols-2 lg:gap-10">
+          <div class="flex flex-col justify-center">
+            <h2
+              id="map-cta-heading"
+              class="font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl"
+            >
+              Open the live map
+            </h2>
+            <p class="mt-4 leading-relaxed text-muted">
+              One link, no mods, no account. The whole server — surface and caves — rendered in your
+              browser and updated while you sleep, mine, or build.
+            </p>
+            <ul class="mt-6 space-y-3">
+              {
+                [
+                  "Explore terrain in true 3D",
+                  "Find players, bases, and structures",
+                  "Measure distances between builds",
+                  "Works on your phone, too",
+                ].map((item) => (
+                  <li class="flex items-center gap-3 text-sm text-bone">
+                    <svg
+                      class="size-4 shrink-0 text-accent"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    {item}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div
+            class="relative flex min-h-72 flex-col items-center justify-end gap-3 overflow-hidden rounded-xl border border-line bg-raised p-6"
+          >
+            <ContourPreview class="absolute inset-0 size-full" />
+            <div class="relative flex flex-col items-center gap-2.5">
+              <a
+                href={SITE.blueMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="from-accent to-copper text-bg inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-b px-7 py-3 text-base font-medium shadow-sm transition-all duration-200 hover:brightness-110 active:brightness-95"
+              >
+                Launch BlueMap
+                <svg
+                  class="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 7h10v10"></path>
+                  <path d="M7 17 17 7"></path>
+                </svg>
+              </a>
+              <p class="text-center font-mono text-xs break-all text-muted">{SITE.blueMapUrl}</p>
+            </div>
+          </div>
+        </Card>
+      </section>
+
+      <section class="border-t border-line py-16 sm:py-20" aria-labelledby="how-to-heading">
+        <SectionHeading
+          eyebrow="How to use it"
+          title="Three steps to cartographer"
+          description="Everything runs in the browser — here's all the orientation you need."
+        />
+        <ol class="mt-10 grid gap-4 sm:grid-cols-3">
+          {
+            [
+              {
+                title: "Open the link",
+                description:
+                  "Head to the map URL from any device with a browser — desktop, tablet, or phone. Nothing to install.",
+              },
+              {
+                title: "Navigate & zoom",
+                description:
+                  "Drag to pan, scroll or pinch to zoom, and click markers for details. Fly from spawn to the far reaches in seconds.",
+              },
+              {
+                title: "Toggle the layers",
+                description:
+                  "Switch between surface and cave views, reveal what's under your feet, and turn player markers on or off.",
+              },
+            ].map((step, index) => (
+              <li>
+                <Card hover class="flex h-full flex-col gap-3">
+                  <span class="font-mono text-sm font-medium text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 class="font-display text-lg font-bold tracking-tight text-bone">
+                    {step.title}
+                  </h3>
+                  <p class="text-sm leading-relaxed text-muted">{step.description}</p>
+                </Card>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="border-t border-line pt-16 pb-20 sm:pt-20 sm:pb-24" aria-labelledby="self-host-heading">
+        <div
+          class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
+        >
+          <div class="max-w-xl">
+            <h2 id="self-host-heading" class="font-display text-2xl font-bold tracking-tight text-bone">
+              No setup on your end
+            </h2>
+            <p class="mt-3 leading-relaxed text-muted">
+              You don't need to run or download anything — the map streams straight from the server,
+              so any device with a browser is already good to go.
+            </p>
+          </div>
+          <div class="flex shrink-0 flex-wrap items-center gap-3">
+            <Button href="/faq" variant="outline">Read the FAQ</Button>
+            <Button href="/tutorial" variant="ghost">View the tutorial</Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

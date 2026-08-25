@@ -1,0 +1,90 @@
+example youtube tutorial = https://www.youtube.com/watch?v=Jpe85Pu7LrU
+
+Here is your complete, all-in-one setup guide for Prism Launcher, including the official import option, Prism's built-in downloader, custom MediaFire files, and the alternative manual browser download method.
+
+---
+
+## Step 1: Install and Setup Prism Launcher
+
+1. Go to **prismlauncher.org** and download the installer for your operating system (Windows, macOS, or Linux).
+2. Complete the installation wizard, choose your language and Java version, and log in with your **Microsoft/Minecraft account**.
+
+---
+
+## Step 2: Choose Your Installation Method
+
+Pick the installation method that fits your preference:
+
+### 📥 PATH A: The Official Pack (Recommended & Fastest)
+
+*Use this if you want the server's pre-made archive to configure everything automatically.*
+
+1. Download the modpack archive: **[BasementDweller-ModPack.mrpack](https://www.mediafire.com/file/8s7p1l2rqa813mb/BasementDweller-ModPack.mrpack/file)**.
+2. Open Prism Launcher and click **Add Instance** in the top-left corner.
+3. On the left sidebar of the popup, select **Import from file**.
+4. Click browse, select your downloaded `.mrpack` file, and click **OK**. Your instance will automatically generate with all server-standard mods included!
+
+---
+
+### ⚙️ PATH B: Custom Build (Using Prism's Downloader, Manual Browser Downloads, & MediaFire Files)
+
+*Use this if you prefer building the pack yourself on the **Fabric** mod loader.*
+
+#### 1. Create a Clean Fabric Instance
+
+1. In Prism Launcher, click **Add Instance**.
+2. Select **Fabric** as your mod loader and choose the correct Minecraft version required by the server.
+3. Name your instance (e.g., `Basement Dwellers`) and click **OK**.
+
+#### 2. Install the Mods (Choose Option A or Option B below)
+
+* **Option 1: Using Prism's Built-In Downloader**
+* Select your new instance, click **Edit** on the right menu, and open the **Mods** tab.
+* Click the **Download** button at the top right, then search for and install all the server's public mods and dependencies (Fabric API, Immersive Aircraft, Biomes O' Plenty + TerraBlender, VinURL + owo-lib, and JobsPlus + its 5 dependencies).
+
+
+* **Option 2: Manual Browser Download & Drop** *(Alternative)*
+* You can also download any of the individual `.jar` files directly from their respective browser links (Modrinth/MediaFire) provided in your server's Discord message.
+
+ - [Fabric API](<https://modrinth.com/mod/fabric-api>)
+ - Immersive Aircraft](<https://modrinth.com/mod/immersive-aircraft>) -
+
+ - Biomes O' Plenty](<https://modrinth.com/mod/biomes-o-plenty>- )
+  ╰─ :link: *Dependency:* [TerraBlender](<https://modrinth.com/mod/terrablender>)
+
+ - JAB](<https://www.mediafire.com/file/x5j47xyqksdtmxk/jab-mod-1.0.0.jar/file>)
+  ╰─ :link: *Dependency:* [Rinku](<https://www.mediafire.com/file/ox8e4rkopftxroq/rinku_fabric_3.0.1_MC_1.21.11.jar/file>)
+
+ - VinURL](<https://modrinth.com/mod/vinurl>)
+  ╰─ :link: *Dependency:* [owo-lib](<https://modrinth.com/mod/owo-lib>)
+
+ - JobsPlus](<https://modrinth.com/mod/jobsplus>)
+  ├── :link: *Dependency:* [YAML Config](<https://modrinth.com/mod/yaml-config>)
+  ├── :link: *Dependency:* [Architectury API](<https://modrinth.com/mod/architectury-api>)
+  ├── :link: *Dependency:* [ItemRestriction](<https://modrinth.com/mod/item-restrictions>)
+  ├── :link: *Dependency:* [Arc Lib](<https://modrinth.com/mod/arc>)
+  └── :link: *Dependency:* [UI Lib](<https://modrinth.com/mod/ui-lib>)
+
+* Once downloaded, open your instance in Prism Launcher, click the **Folder** button on the right sidebar, open the **`mods`** folder, and drag and drop your downloaded `.jar` files straight into it.
+
+
+
+#### 3. Add the Custom MediaFire Mods (`JAB` and `Rinku`)
+
+Because these two custom mods aren't on public mod repositories, download them directly via their MediaFire links:
+
+* 🦇 **[JAB Mod](https://www.mediafire.com/file/x5j47xyqksdtmxk/jab-mod-1.0.0.jar/file)** *(Dependency: **[Rinku](https://www.mediafire.com/file/ox8e4rkopftxroq/rinku_fabric_3.0.1_MC_1.21.11.jar/file)**)*
+
+To install them:
+
+1. Select your instance in Prism Launcher and click the **Folder** button on the right sidebar to open your instance files.
+2. Open the **`mods`** folder.
+3. Drag and drop your downloaded `jab-mod-1.0.0.jar` and `rinku_fabric_3.0.1_MC_1.21.11.jar` files directly into this folder.
+
+---
+
+## Step 3: Launch and Play!
+
+1. Close your file explorer and return to Prism Launcher.
+2. Double-click your instance to launch Minecraft.
+3. Head to the **Mods** menu on the title screen to verify everything is green and loaded, then hop onto the server!

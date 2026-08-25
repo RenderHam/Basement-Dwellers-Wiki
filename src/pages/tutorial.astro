@@ -1,0 +1,115 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import StepBlocks from "../components/tutorial/StepBlocks.astro";
+import { TUTORIAL_STEPS, VIDEO_WALKTHROUGH } from "../data/tutorial";
+---
+
+<Layout
+  title="Tutorial"
+  description="Install Prism Launcher, import the official Basement Dwellers modpack (or build it mod by mod), and join the server — a guided descent in three steps."
+>
+  <Header />
+  <main>
+    <section class="strata-hero border-b border-line">
+      <div class="mx-auto w-full max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24">
+        <p class="eyebrow">Field guide · From surface to spawn</p>
+        <h1 class="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-bone sm:text-5xl">
+          Your descent begins here.
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+          Three steps stand between you and the basement: install Prism Launcher, load the mods, and
+          dive in. Follow the rail down.
+        </p>
+        <p
+          aria-hidden="true"
+          class="mt-6 font-mono text-xs uppercase tracking-[0.25em] text-muted"
+        >
+          3 steps · 2 routes · 1 server address
+        </p>
+
+        <a
+          href={VIDEO_WALKTHROUGH.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group mt-10 flex flex-col gap-4 rounded-xl border border-line bg-raised/80 p-5 transition-colors duration-200 hover:border-accent/50 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+        >
+          <span class="flex items-center gap-4">
+            <span
+              aria-hidden="true"
+              class="grid size-11 shrink-0 place-items-center rounded-lg border border-accent/40 bg-accent/10 text-accent transition-colors duration-200 group-hover:bg-accent/20"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-5">
+                <path d="M8.5 5.5v13l10-6.5z"></path>
+              </svg>
+            </span>
+            <span>
+              <span class="block font-display font-bold text-bone">{VIDEO_WALKTHROUGH.title}</span>
+              <span class="mt-0.5 block text-sm leading-relaxed text-muted">
+                {VIDEO_WALKTHROUGH.description}
+              </span>
+            </span>
+          </span>
+          <span class="inline-flex shrink-0 items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
+            Watch on YouTube
+            <svg
+              class="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17 17 7"></path>
+              <path d="M8 7h9v9"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20" aria-label="Installation steps">
+      <ol class="relative space-y-12 md:space-y-16">
+        <span
+          aria-hidden="true"
+          class="absolute top-4 bottom-8 left-6 hidden w-px -translate-x-1/2 bg-linear-to-b from-accent to-copper [mask-image:linear-gradient(to_bottom,black_70%,transparent)] md:block"
+        ></span>
+        {
+          TUTORIAL_STEPS.map((step, index) => (
+            <li id={step.id} class="scroll-mt-24 md:grid md:grid-cols-[3rem_minmax(0,1fr)] md:gap-8">
+              <div class="hidden items-start justify-center pt-1 md:flex" aria-hidden="true">
+                <span class="relative z-10 rounded-md border border-line bg-surface px-2 py-1 font-mono text-[11px] font-medium tracking-widest whitespace-nowrap text-accent shadow-[0_0_0_4px_var(--color-bg)]">
+                  {step.depth}
+                </span>
+              </div>
+              <article class="rounded-xl border border-line bg-surface p-6 shadow-[inset_0_1px_0_rgba(237,228,214,0.05)] sm:p-8">
+                <header class="mb-6 flex items-center gap-4">
+                  <span
+                    aria-hidden="true"
+                    class="flex size-11 shrink-0 items-center justify-center rounded-lg border border-accent/30 bg-linear-to-b from-accent/15 to-copper/10 font-display text-lg font-bold text-accent"
+                  >
+                    {index + 1}
+                  </span>
+                  <h2 class="flex-1 font-display text-2xl font-bold tracking-tight text-bone">
+                    {step.title}
+                  </h2>
+                  <span
+                    aria-hidden="true"
+                    class="shrink-0 rounded-md border border-line bg-raised px-2 py-1 font-mono text-[11px] font-medium tracking-widest whitespace-nowrap text-accent md:hidden"
+                  >
+                    {step.depth}
+                  </span>
+                </header>
+                <StepBlocks blocks={step.blocks} />
+              </article>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </main>
+  <Footer />
+</Layout>

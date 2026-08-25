@@ -1,0 +1,22 @@
+---
+import type { ModHost } from "../../data/tutorial";
+
+interface Props {
+  host: ModHost;
+  class?: string;
+}
+
+const { host, class: className } = Astro.props;
+---
+
+<span
+  class:list={[
+    "inline-flex shrink-0 items-center rounded border px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.18em]",
+    host === "MODRINTH"
+      ? "border-moss/40 bg-moss/10 text-moss"
+      : "border-copper/40 bg-copper/10 text-copper",
+    className,
+  ]}
+>
+  {host}
+</span>

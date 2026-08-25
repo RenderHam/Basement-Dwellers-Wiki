@@ -1,0 +1,28 @@
+---
+import RichText from "./RichText.astro";
+
+interface Props {
+  items: string[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<ol class:list={["space-y-3", className]}>
+  {
+    items.map((item, index) => (
+      <li class="flex gap-3 text-sm leading-relaxed text-muted">
+        <span
+          aria-hidden="true"
+          class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-line bg-raised font-mono text-[10px] font-semibold text-accent"
+        >
+          {index + 1}
+        </span>
+        <span>
+          <RichText text={item} />
+        </span>
+      </li>
+    ))
+  }
+</ol>

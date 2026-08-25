@@ -1,0 +1,38 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const { href, variant = "primary", size = "md", class: className } = Astro.props;
+
+const base =
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200";
+
+const variants: Record<NonNullable<Props["variant"]>, string> = {
+  primary:
+    "bg-linear-to-b from-accent to-copper text-bg shadow-sm hover:brightness-110 active:brightness-95",
+  outline: "border border-line bg-transparent text-bone hover:border-accent hover:text-accent",
+  ghost: "text-muted hover:text-bone",
+};
+
+const sizes: Record<NonNullable<Props["size"]>, string> = {
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3 text-base",
+};
+---
+
+{
+  href ? (
+    <a href={href} class:list={[base, variants[variant], sizes[size], className]}>
+      <slot />
+    </a>
+  ) : (
+    <button type="button" class:list={[base, variants[variant], sizes[size], className]}>
+      <slot />
+    </button>
+  )
+}

@@ -1,0 +1,27 @@
+---
+import HubTabs from "../components/tabs/HubTabs.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Hub"
+  description="Getting started steps, server rules, and essential resources for Basement Dwellers — your base camp on one screen."
+>
+  <Header />
+  <main class="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+    <h1 class="sr-only">Hub</h1>
+    <SectionHeading
+      eyebrow="Hub"
+      title="Your base camp"
+      description="Everything a dweller needs between sessions: how to join, how to behave, and where to look things up."
+      align="center"
+    />
+    <div class="mt-10 sm:mt-12">
+      <HubTabs />
+    </div>
+  </main>
+  <Footer />
+</Layout>

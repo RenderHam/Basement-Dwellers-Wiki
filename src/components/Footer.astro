@@ -1,0 +1,87 @@
+---
+import { NAV_LINKS, SITE } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-surface/40">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+    <div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
+      <div>
+        <p class="font-display text-lg font-bold tracking-tight text-bone">{SITE.name}</p>
+        <p class="mt-2 text-sm font-medium text-accent">{SITE.tagline}</p>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-muted">{SITE.description}</p>
+      </div>
+
+      <nav aria-label="Explore">
+        <p class="eyebrow">Explore</p>
+        <ul class="mt-4 space-y-2.5">
+          {
+            NAV_LINKS.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-muted hover:text-accent text-sm transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-label="Community">
+        <p class="eyebrow">Community</p>
+        <ul class="mt-4 space-y-2.5">
+          <li>
+            <a
+              href={SITE.discordUrl}
+              rel="noopener noreferrer"
+              class="text-muted hover:text-accent text-sm transition-colors duration-200"
+            >
+              Discord
+            </a>
+          </li>
+          <li>
+            <a
+              href={SITE.blueMapUrl}
+              rel="noopener noreferrer"
+              class="text-muted hover:text-accent text-sm transition-colors duration-200"
+            >
+              Blue Map
+            </a>
+          </li>
+          <li>
+            <a
+              href={SITE.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted hover:text-accent text-sm transition-colors duration-200 inline-flex items-center gap-1.5"
+            >
+              GitHub
+              <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </li>
+          <li class="pt-1">
+            <p class="eyebrow">Server IP</p>
+            <code
+              class="mt-1.5 inline-block rounded-md border border-line bg-raised px-2.5 py-1 font-mono text-xs text-bone"
+            >
+              {SITE.serverIp}
+            </code>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div
+      class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 sm:flex-row sm:items-center"
+    >
+      <p class="text-sm text-muted">&copy; {year} {SITE.name}. All rights reserved.</p>
+      <p class="eyebrow">Built by dwellers, for dwellers.</p>
+    </div>
+  </div>
+</footer>

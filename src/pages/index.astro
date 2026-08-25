@@ -1,0 +1,23 @@
+---
+import ClosingBand from "../components/home/ClosingBand.astro";
+import FeaturesTeaser from "../components/home/FeaturesTeaser.astro";
+import FeatureStrip from "../components/home/FeatureStrip.astro";
+import Hero from "../components/home/Hero.astro";
+import WikiToc from "../components/home/WikiToc.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../data/site";
+---
+
+<Layout title="Home" description={SITE.description}>
+  <Header />
+  <main>
+    <Hero />
+    <FeatureStrip />
+    <FeaturesTeaser />
+    <WikiToc />
+    <ClosingBand />
+  </main>
+  <Footer />
+</Layout>

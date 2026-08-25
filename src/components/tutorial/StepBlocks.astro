@@ -1,0 +1,46 @@
+---
+import { SITE } from "../../data/site";
+import type { StepBlock } from "../../data/tutorial";
+import CopyField from "../ui/CopyField.astro";
+import ActionList from "./ActionList.astro";
+import PathCard from "./PathCard.astro";
+import RichText from "./RichText.astro";
+
+interface Props {
+  blocks: StepBlock[];
+}
+
+const { blocks } = Astro.props;
+---
+
+<div class="space-y-5">
+  {
+    blocks.map((block) => {
+      if (block.kind === "text") {
+        return (
+          <p class="leading-relaxed text-muted">
+            <RichText text={block.body} />
+          </p>
+        );
+      }
+      if (block.kind === "actions") {
+        return <ActionList items={block.items} />;
+      }
+      if (block.kind === "paths") {
+        return (
+          <div class="grid gap-4 md:grid-cols-2 md:gap-6">
+            {block.paths.map((path) => (
+              <PathCard path={path} />
+            ))}
+          </div>
+        );
+      }
+      return (
+        <div class="space-y-2">
+          <CopyField value={SITE.serverIp} label="Server address" />
+          <p class="text-sm leading-relaxed text-muted">{block.helper}</p>
+        </div>
+      );
+    })
+  }
+</div>

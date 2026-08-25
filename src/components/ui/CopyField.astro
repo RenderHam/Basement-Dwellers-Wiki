@@ -1,0 +1,43 @@
+---
+interface Props {
+  value: string;
+  label?: string;
+  class?: string;
+}
+
+const { value, label, class: className } = Astro.props;
+---
+
+<div class={className}>
+  {label && <p class="eyebrow mb-2">{label}</p>}
+  <div class="flex items-stretch overflow-hidden rounded-lg border border-line bg-raised">
+    <code class="min-w-0 flex-1 self-center truncate px-4 py-3 font-mono text-sm text-bone">
+      {value}
+    </code>
+    <button
+      type="button"
+      class="shrink-0 cursor-pointer border-l border-line bg-surface px-4 font-mono text-xs font-medium uppercase tracking-widest text-accent transition-colors duration-200 hover:bg-raised active:bg-bg"
+      data-copy-button
+      data-value={value}
+    >
+      Copy
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-button]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const original = button.textContent ?? "Copy";
+      try {
+        await navigator.clipboard.writeText(button.dataset.value ?? "");
+        button.textContent = "Copied!";
+      } catch {
+        button.textContent = "Failed";
+      }
+      window.setTimeout(() => {
+        button.textContent = original;
+      }, 1500);
+    });
+  });
+</script>

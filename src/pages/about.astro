@@ -1,0 +1,110 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Card from "../components/ui/Card.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import TeamCard from "../components/about/TeamCard.astro";
+import ValueIcon from "../components/about/ValueIcon.astro";
+import { ABOUT_LEAD, CREW, STORY_HEADING, STORY_PARAGRAPHS, VALUES } from "../data/about";
+import { SITE } from "../data/site";
+---
+
+<Layout title="About">
+  <Header />
+  <main>
+    <section class="strata-hero border-b border-line">
+      <div class="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+        <p class="eyebrow">About us</p>
+        <h1
+          class="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-bone sm:text-5xl"
+        >
+          Built by dwellers, for dwellers.
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{ABOUT_LEAD}</p>
+      </div>
+    </section>
+
+    <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <section class="py-16 sm:py-20" aria-labelledby="values-heading">
+        <SectionHeading
+          eyebrow="Our values"
+          title="What we stand for"
+          description="Four simple ideas keep the basement a place worth coming back to."
+        />
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            VALUES.map((value) => (
+              <Card hover class="flex flex-col gap-4">
+                <div class="border-accent/30 bg-accent/10 text-accent flex size-10 items-center justify-center rounded-lg border">
+                  <ValueIcon name={value.icon} class="size-5" />
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold tracking-tight text-bone">
+                    {value.title}
+                  </h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted">{value.description}</p>
+                </div>
+              </Card>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="border-t border-line py-16 sm:py-20" aria-labelledby="story-heading">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
+          <SectionHeading
+            eyebrow={STORY_HEADING.eyebrow}
+            title={STORY_HEADING.title}
+            description="A short history of how the hatch got opened."
+          />
+          <div class="space-y-5 leading-relaxed text-muted">
+            {STORY_PARAGRAPHS.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-line py-16 sm:py-20" aria-labelledby="crew-heading">
+        <SectionHeading
+          eyebrow="The crew"
+          title="Who keeps the lights on"
+          description="The folks wrangling the server, the modpack, and the occasional creeper incident."
+        />
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            CREW.map((member) => (
+              <TeamCard
+                name={member.name}
+                handle={member.handle}
+                role={member.role}
+                tag={member.tag}
+              />
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
+    <section class="border-t border-line bg-surface/60">
+      <div
+        class="mx-auto flex w-full max-w-6xl flex-col items-start gap-8 px-4 py-16 sm:px-6 sm:py-20 md:flex-row md:items-center md:justify-between"
+      >
+        <div class="max-w-xl">
+          <h2 class="font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl">
+            Pull up a chair by the furnace.
+          </h2>
+          <p class="mt-4 leading-relaxed text-muted">
+            The world is already dug in and waiting. Bring your best build ideas — we'll save you a
+            spot near spawn.
+          </p>
+        </div>
+        <div class="flex shrink-0 flex-wrap items-center gap-3">
+          <Button href="/tutorial" size="lg">Come dig in</Button>
+          <Button href={SITE.discordUrl} variant="ghost" size="lg">Join us on Discord</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

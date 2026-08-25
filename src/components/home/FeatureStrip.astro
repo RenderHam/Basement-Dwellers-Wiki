@@ -1,0 +1,90 @@
+---
+import Card from "../ui/Card.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const features = [
+  {
+    href: "/tutorial",
+    icon: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+    title: "Guided onboarding",
+    description:
+      "A step-by-step tutorial takes you from blank launcher to first night below.",
+  },
+  {
+    href: "/blue-map",
+    icon: '<path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"/><path d="M9 4v14"/><path d="m15 6v14"/>',
+    title: "Live Blue Map",
+    description:
+      "The whole world, rendered in real time — from spawn towns to deep-earth bases.",
+  },
+  {
+    href: "/faq",
+    icon: '<path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5c-1.2 0-2.4-.3-3.4-.8L4 19.5l1.3-5.1A7.5 7.5 0 1 1 20 11.5z"/>',
+    title: "Community answers",
+    description:
+      "Real questions from the server, answered clearly — no digging through forums.",
+  },
+  {
+    href: "/about",
+    icon: '<path d="m12 3 7 2.8v5.4c0 4.4-2.9 7.4-7 9.3-4.1-1.9-7-4.9-7-9.3V5.8z"/><path d="m9 11.6 2.1 2.1 4.2-4.7"/>',
+    title: "Fair play, always",
+    description:
+      "Zero pay-to-win. Ranks never touch gameplay — skill and craft carry the day.",
+  },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
+    <SectionHeading
+      eyebrow="Why dwellers stay"
+      title="Everything you need for the descent"
+      description="Four reasons the basement feels like home — and where to go for each."
+    />
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        features.map((feature) => (
+          <Card class="relative" hover>
+            <a
+              href={feature.href}
+              class="group flex h-full flex-col after:absolute after:inset-0 after:rounded-xl after:content-['']"
+            >
+              <span class="flex size-11 items-center justify-center rounded-lg border border-line bg-raised text-accent">
+                <svg
+                  class="size-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <Fragment set:html={feature.icon} />
+                </svg>
+              </span>
+              <h3 class="mt-4 font-display text-base font-semibold text-bone transition-colors duration-200 group-hover:text-accent">
+                {feature.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{feature.description}</p>
+              <span class="mt-auto flex items-center pt-4 text-sm font-medium text-accent">
+                <span class="sr-only">Go to {feature.title}</span>
+                <svg
+                  class="size-4 transition-transform duration-200 group-hover:translate-x-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </Card>
+        ))
+      }
+    </div>
+</section>

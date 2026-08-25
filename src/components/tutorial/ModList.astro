@@ -1,0 +1,30 @@
+---
+import type { ModEntry } from "../../data/tutorial";
+import ModRow from "./ModRow.astro";
+
+interface Props {
+  mods: ModEntry[];
+  class?: string;
+}
+
+const { mods, class: className } = Astro.props;
+---
+
+<ul class:list={["space-y-1", className]}>
+  {
+    mods.map((mod) => (
+      <li>
+        <ModRow mod={mod} />
+        {mod.requires && mod.requires.length > 0 && (
+          <ul class="ml-6 mt-0.5 space-y-0.5 border-l border-line/60 pl-1.5">
+            {mod.requires.map((dep) => (
+              <li>
+                <ModRow mod={dep} subtle />
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))
+  }
+</ul>

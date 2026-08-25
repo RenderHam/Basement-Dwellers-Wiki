@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import FeatureCard from "../components/features/FeatureCard.astro";
+import Button from "../components/ui/Button.astro";
+import { SERVER_FEATURES } from "../data/features";
+import { SITE } from "../data/site";
+---
+
+<Layout title="Features">
+  <Header />
+  <main>
+    <section class="strata-hero border-b border-line px-4 py-20 sm:px-6 sm:py-24">
+      <div class="mx-auto w-full max-w-6xl">
+        <span class="eyebrow">Server showcase</span>
+        <h1
+          class="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-bone sm:text-5xl lg:text-6xl"
+        >
+          A taste of the basement.
+        </h1>
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+          Uncover the secrets beneath the server — biomes, structures, jobs, aircraft, and more.
+          Seven reasons to dig deeper.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
+      <SectionHeading
+        eyebrow="What awaits"
+        title="The basement is bigger than you think"
+        description="Each feature is a doorway to something deeper — just pick your path."
+      />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {SERVER_FEATURES.map((f) => <FeatureCard feature={f} />)}
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-surface px-4 py-16 sm:px-6">
+      <div
+        class="mx-auto flex w-full max-w-6xl flex-col items-start gap-8 md:flex-row md:items-center md:justify-between"
+      >
+        <div class="max-w-xl">
+          <h2 class="font-display text-2xl font-bold tracking-tight text-bone">
+            Ready to dig in?
+          </h2>
+          <p class="mt-2 text-muted">
+            Everything starts with the launcher — take the tutorial and be in-game in five minutes.
+          </p>
+        </div>
+        <div class="flex shrink-0 flex-wrap items-center gap-3">
+          <Button href="/tutorial">Start the tutorial</Button>
+          <Button href={SITE.blueMapUrl} variant="outline">Open the live map</Button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
