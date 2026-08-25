@@ -7,3 +7,4 @@ dist/
 PROMPT.md
 .wrangler/
 basement-dwellers-wiki.production.*.build.log
+pnpm-workspace.yaml
