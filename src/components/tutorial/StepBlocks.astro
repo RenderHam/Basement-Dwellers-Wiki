@@ -13,12 +13,12 @@ interface Props {
 const { blocks } = Astro.props;
 ---
 
-<div class="space-y-5">
+<div class="space-y-6">
   {
     blocks.map((block) => {
       if (block.kind === "text") {
         return (
-          <p class="leading-relaxed text-muted">
+          <p class="text-base leading-relaxed text-muted">
             <RichText text={block.body} />
           </p>
         );
@@ -28,7 +28,7 @@ const { blocks } = Astro.props;
       }
       if (block.kind === "paths") {
         return (
-          <div class="grid gap-4 md:grid-cols-2 md:gap-6">
+          <div class="grid gap-5 md:grid-cols-2 md:gap-6">
             {block.paths.map((path) => (
               <PathCard path={path} />
             ))}
@@ -36,7 +36,7 @@ const { blocks } = Astro.props;
         );
       }
       return (
-        <div class="space-y-2">
+        <div class="space-y-3 rounded-xl border border-line/60 bg-raised/50 p-5">
           <CopyField value={SITE.serverIp} label="Server address" />
           <p class="text-sm leading-relaxed text-muted">{block.helper}</p>
         </div>

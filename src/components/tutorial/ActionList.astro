@@ -9,17 +9,17 @@ interface Props {
 const { items, class: className } = Astro.props;
 ---
 
-<ol class:list={["space-y-3", className]}>
+<ol class:list={["space-y-4", className]}>
   {
     items.map((item, index) => (
-      <li class="flex gap-3 text-sm leading-relaxed text-muted">
+      <li class="flex gap-3.5 text-sm leading-relaxed text-muted">
         <span
           aria-hidden="true"
-          class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-line bg-raised font-mono text-[10px] font-semibold text-accent"
+          class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-linear-to-b from-accent/15 to-copper/10 font-mono text-[10px] font-bold text-accent"
         >
           {index + 1}
         </span>
-        <span>
+        <span class="min-w-0 flex-1">
           <RichText text={item} />
         </span>
       </li>

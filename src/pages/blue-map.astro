@@ -2,10 +2,8 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/ui/Button.astro";
 import Card from "../components/ui/Card.astro";
 import SectionHeading from "../components/ui/SectionHeading.astro";
-import ContourPreview from "../components/bluemap/ContourPreview.astro";
 import { SITE } from "../data/site";
 ---
 
@@ -28,76 +26,45 @@ import { SITE } from "../data/site";
     </section>
 
     <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
-      <section class="py-16 sm:py-20" aria-labelledby="map-cta-heading">
-        <Card class="grid gap-8 lg:grid-cols-2 lg:gap-10">
-          <div class="flex flex-col justify-center">
-            <h2
-              id="map-cta-heading"
-              class="font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl"
+      <section class="py-10 sm:py-14" aria-label="Live map">
+        <div
+          class="overflow-hidden rounded-xl border border-line bg-surface shadow-[inset_0_1px_0_rgba(237,228,214,0.05)]"
+        >
+          <div class="relative aspect-[16/10] w-full sm:aspect-video">
+            <iframe
+              src={SITE.blueMapUrl}
+              title="Basement Dwellers Blue Map"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              class="absolute inset-0 h-full w-full border-0"
+            ></iframe>
+          </div>
+          <div class="flex items-center justify-between border-t border-line/60 px-5 py-3 sm:px-6">
+            <p class="font-mono text-xs break-all text-muted">{SITE.blueMapUrl}</p>
+            <a
+              href={SITE.blueMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-raised"
             >
-              Open the live map
-            </h2>
-            <p class="mt-4 leading-relaxed text-muted">
-              One link, no mods, no account. The whole server — surface and caves — rendered in your
-              browser and updated while you sleep, mine, or build.
-            </p>
-            <ul class="mt-6 space-y-3">
-              {
-                [
-                  "Explore terrain in true 3D",
-                  "Find players, bases, and structures",
-                  "Measure distances between builds",
-                  "Works on your phone, too",
-                ].map((item) => (
-                  <li class="flex items-center gap-3 text-sm text-bone">
-                    <svg
-                      class="size-4 shrink-0 text-accent"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    {item}
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-          <div
-            class="relative flex min-h-72 flex-col items-center justify-end gap-3 overflow-hidden rounded-xl border border-line bg-raised p-6"
-          >
-            <ContourPreview class="absolute inset-0 size-full" />
-            <div class="relative flex flex-col items-center gap-2.5">
-              <a
-                href={SITE.blueMapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="from-accent to-copper text-bg inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-b px-7 py-3 text-base font-medium shadow-sm transition-all duration-200 hover:brightness-110 active:brightness-95"
+              Open in new tab
+              <svg
+                class="size-3"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
               >
-                Launch BlueMap
-                <svg
-                  class="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M7 7h10v10"></path>
-                  <path d="M7 17 17 7"></path>
-                </svg>
-              </a>
-              <p class="text-center font-mono text-xs break-all text-muted">{SITE.blueMapUrl}</p>
-            </div>
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+              </svg>
+            </a>
           </div>
-        </Card>
+        </div>
       </section>
 
       <section class="border-t border-line py-16 sm:py-20" aria-labelledby="how-to-heading">
@@ -155,8 +122,27 @@ import { SITE } from "../data/site";
             </p>
           </div>
           <div class="flex shrink-0 flex-wrap items-center gap-3">
-            <Button href="/faq" variant="outline">Read the FAQ</Button>
-            <Button href="/tutorial" variant="ghost">View the tutorial</Button>
+            <a
+              href={SITE.blueMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="from-accent to-copper text-bg inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-linear-to-b px-7 py-3 text-base font-medium shadow-sm transition-all duration-200 hover:brightness-110 active:brightness-95"
+            >
+              Launch BlueMap fullscreen
+              <svg
+                class="size-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </section>

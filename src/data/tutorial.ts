@@ -35,6 +35,7 @@ export interface TutorialStep {
 
 export const VIDEO_WALKTHROUGH = {
   url: "https://www.youtube.com/watch?v=Jpe85Pu7LrU",
+  videoId: "Jpe85Pu7LrU",
   title: "Prefer to watch?",
   description: "Follow along with the community's step-by-step video guide on YouTube.",
 } as const;

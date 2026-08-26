@@ -1,26 +1,52 @@
 ---
+import { Image } from "astro:assets";
+import groupScreenshot from "../../assets/home/GroupScreenshot.webp";
 import Button from "../ui/Button.astro";
 import CopyField from "../ui/CopyField.astro";
 import { SITE } from "../../data/site";
 ---
 
-<section class="strata-hero">
-  <div class="mx-auto w-full max-w-6xl px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-24">
-    <p class="eyebrow">Modded Minecraft Server</p>
-    <h1
-      class="mt-6 max-w-3xl font-display text-4xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl"
-    >
-      <span class="text-muted">The best adventures</span>
-      <br />
-      <span class="text-accent">start below the surface.</span>
-    </h1>
-    <p class="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-      {SITE.description}
-    </p>
-    <div class="mt-9 flex flex-wrap items-center gap-3">
-      <Button href="/tutorial" size="lg">Start the tutorial</Button>
-      <Button href="/blue-map" variant="outline" size="lg">Open the live map</Button>
+<section class="strata-hero overflow-hidden">
+  <div
+    class="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:grid-cols-[1fr_28rem] lg:gap-14"
+  >
+    <div class="min-w-0">
+      <p class="eyebrow">Modded Minecraft Server</p>
+      <h1
+        class="mt-5 max-w-xl font-display text-3xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+      >
+        <span class="text-muted">The best adventures</span>
+        <br />
+        <span class="text-accent">start below the surface.</span>
+      </h1>
+      <p class="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+        {SITE.description}
+      </p>
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <Button href="/tutorial" size="lg">Start the tutorial</Button>
+        <Button href="/blue-map" variant="outline" size="lg">Open the live map</Button>
+      </div>
+      <CopyField value={SITE.serverIp} label="Server IP" class="mt-10 max-w-sm" />
     </div>
-    <CopyField value={SITE.serverIp} label="Server IP" class="mt-12 max-w-sm" />
+
+    <div class="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+      <div
+        class="overflow-hidden rounded-2xl border border-line shadow-[0_32px_80px_-20px_rgba(0,0,0,0.7)]"
+      >
+        <Image
+          src={groupScreenshot}
+          alt="The Basement Dwellers crew gathered together underground"
+          widths={[400, 640, 800]}
+          sizes="(min-width:1024px) 28rem, 100vw"
+          loading="eager"
+          class="aspect-[4/3] w-full object-cover"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-linear-to-tr from-accent/8 via-transparent to-copper/8 blur-2xl"
+      >
+      </div>
+    </div>
   </div>
 </section>
