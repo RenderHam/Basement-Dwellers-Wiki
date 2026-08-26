@@ -48,12 +48,12 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
     blocks: [
       {
         kind: "text",
-        body: "Basement Dwellers is a **Fabric** server, and [Prism Launcher](https://prismlauncher.org) is the friendliest way to run a modded instance — it handles game versions, Java, and mod folders for you.",
+        body: "Basement Dwellers is a **Fabric** server, and [Prism Launcher](https://github.com/Diegiwg/PrismLauncher-Cracked/releases) is the friendliest way to run a modded instance — it handles game versions, Java, and mod folders for you.",
       },
       {
         kind: "actions",
         items: [
-          "Download the installer for your operating system from [prismlauncher.org](https://prismlauncher.org) — Windows, macOS and Linux are all covered.",
+          "Download the installer for your operating system from [Prism Launcher releases](https://github.com/Diegiwg/PrismLauncher-Cracked/releases) — Windows, macOS and Linux are all covered.",
           "Run the setup wizard: choose your **language**, then let Prism detect or install a suitable **Java version**.",
           "Log in with your **Microsoft / Minecraft account**.",
         ],
