@@ -6,6 +6,14 @@ import Button from "../ui/Button.astro";
 import Card from "../ui/Card.astro";
 import type { ServerFeature, FeatureIcon } from "../../data/features";
 
+import biomesImg from "../../assets/features/biomes.webp";
+import structuresImg from "../../assets/features/structures.webp";
+import endStructuresImg from "../../assets/features/end-structures.webp";
+import jobsImg from "../../assets/features/jobs.webp";
+import aircraftImg from "../../assets/features/aircraft.webp";
+import tradeCyclingImg from "../../assets/features/trade-cycling.webp";
+import skinsImg from "../../assets/features/skins.webp";
+
 interface Props {
   feature: ServerFeature;
   class?: string;
@@ -13,11 +21,17 @@ interface Props {
 
 const { feature, class: className } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../../assets/features/*.{webp,png,jpg}",
-  { eager: true, import: "default" },
-);
-const featureImage = images[`../../assets/features/${feature.id}.webp`]?.default;
+const imageMap: Record<string, ImageMetadata> = {
+  biomes: biomesImg,
+  structures: structuresImg,
+  "end-structures": endStructuresImg,
+  jobs: jobsImg,
+  aircraft: aircraftImg,
+  "trade-cycling": tradeCyclingImg,
+  skins: skinsImg,
+};
+
+const featureImage = imageMap[feature.id];
 
 const iconMap: Record<FeatureIcon, string> = {
   biomes:
