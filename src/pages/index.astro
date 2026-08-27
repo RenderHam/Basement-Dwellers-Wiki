@@ -3,7 +3,7 @@ import ClosingBand from "../components/home/ClosingBand.astro";
 import FeatureStrip from "../components/home/FeatureStrip.astro";
 import Hero from "../components/home/Hero.astro";
 import WikiToc from "../components/home/WikiToc.astro";
-import FeatureCard from "../components/features/FeatureCard.astro";
+import FeatureRow from "../components/features/FeatureRow.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
@@ -16,18 +16,25 @@ import { SERVER_FEATURES } from "../data/features";
   <main>
     <Hero />
     <FeatureStrip />
-    <section class="border-t border-line mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
-      <div class="max-w-2xl">
-        <p class="eyebrow mb-3">Server showcase</p>
-        <h2 class="font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl">
-          A taste of the basement
-        </h2>
-        <p class="mt-4 leading-relaxed text-muted">
-          Biomes, structures, jobs, aircraft, and more — seven reasons to dig deeper.
-        </p>
+    <section class="border-t border-line">
+      <div class="mx-auto w-full max-w-6xl px-4 pt-20 sm:px-6 sm:pt-24">
+        <div class="max-w-2xl">
+          <p class="eyebrow mb-3">Server showcase</p>
+          <h2 class="font-display text-3xl font-bold tracking-tight text-bone sm:text-4xl">
+            A taste of the basement
+          </h2>
+          <p class="mt-4 leading-relaxed text-muted">
+            Biomes, structures, jobs, aircraft, and more — seven reasons to dig deeper.
+          </p>
+        </div>
       </div>
-      <div class="mt-10 grid gap-5 sm:grid-cols-2">
-        {SERVER_FEATURES.map((f) => <FeatureCard feature={f} />)}
+      <div class="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        {SERVER_FEATURES.map((f, i) => (
+          <>
+            {i > 0 && <div class="border-t border-line" aria-hidden="true"></div>}
+            <FeatureRow feature={f} index={i} />
+          </>
+        ))}
       </div>
     </section>
     <WikiToc />
