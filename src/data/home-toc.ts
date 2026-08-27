@@ -35,9 +35,4 @@ export const HOME_TOC: TocEntry[] = [
     name: "Tabs hub",
     description: "Getting started, rules, and resources on one screen.",
   },
-  {
-    href: "/features",
-    name: "Features",
-    description: "Biomes, structures, jobs, aircraft & more.",
-  },
 ];

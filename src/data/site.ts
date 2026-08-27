@@ -20,5 +20,4 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/blue-map", label: "Blue Map" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
-  { href: "/features", label: "Features" },
 ];
