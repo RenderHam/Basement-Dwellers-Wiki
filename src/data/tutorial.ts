@@ -81,7 +81,7 @@ export const TUTORIAL_STEPS: TutorialStep[] = [
                             "One `.mrpack` file carries every server-standard mod at pinned versions — import it and you're done.",
                         ],
                         actions: [
-                            "Download **BasementServer.mrpack** either links [MRPACK (33KB)](https://www.mediafire.com/file/spfy05v5lyh06v9/BasementServer.mrpack/file) or [ZIP (20MB)](https://www.mediafire.com/file/d5wytmmkr8iw9ot/BasementServer.zip/file).",
+                            "Download **BasementServer.mrpack** either links [MRPACK (33KB)](https://www.mediafire.com/file/spfy05v5lyh06v9/BasementServer.mrpack/file) or [ZIP (20MB)](https://www.mediafire.com/file/fq7ee9kip50m1uc/jab-mod-1.1.1-1.21.11.jar/file).",
                             "In Prism, click **Add Instance** (top-left), then choose **Import from file** in the sidebar.",
                             "Browse to the downloaded `.mrpack` and confirm with **OK**.",
                         ],
