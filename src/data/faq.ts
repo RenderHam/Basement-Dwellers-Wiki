@@ -47,7 +47,7 @@ export const FAQ_CATEGORIES: FaqCategoryData[] = [
     items: [
       {
         q: "What kind of server is this?",
-        a: "Cozy, community-driven modded survival. We care about craftsmanship, exploration and good company more than efficiency — build something you're proud of, take a job with JobsPlus, take an Immersive Aircraft up for a spin, and don't treat the world like a spreadsheet.",
+        a: "Cozy, community-driven modded survival. We care about craftsmanship, exploration and good company more than efficiency — build something you're proud of, be a Cook like Chef Rhyns, take a job with JobsPlus, take an Aircraft up for a spin, and don't treat the world like a spreadsheet.",
       },
       {
         q: "Which mods are actually required to connect?",

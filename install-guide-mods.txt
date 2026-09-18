@@ -40,7 +40,7 @@ Pick the installation method that fits your preference:
 
 * **Option 1: Using Prism's Built-In Downloader**
 * Select your new instance, click **Edit** on the right menu, and open the **Mods** tab.
-* Click the **Download** button at the top right, then search for and install all the server's public mods and dependencies (Fabric API, Immersive Aircraft, Biomes O' Plenty + TerraBlender, VinURL + owo-lib, and JobsPlus + its 5 dependencies).
+* Click the **Download** button at the top right, then search for and install all the server's public mods and dependencies (Fabric API, Immersive Aircraft, Biomes O' Plenty + TerraBlender, VinURL + owo-lib, Kaleidoscope Cookery Refabricated, JobsPlus + its 5 dependencies).
 
 
 * **Option 2: Manual Browser Download & Drop** *(Alternative)*

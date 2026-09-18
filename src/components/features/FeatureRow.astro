@@ -9,6 +9,7 @@ import biomesImg from "../../assets/features/biomes.webp";
 import structuresImg from "../../assets/features/structures.webp";
 import endStructuresImg from "../../assets/features/end-structures.webp";
 import jobsImg from "../../assets/features/jobs.webp";
+import cookeryImg from "../../assets/features/cookery.webp";
 import aircraftImg from "../../assets/features/aircraft.webp";
 import tradeCyclingImg from "../../assets/features/trade-cycling.webp";
 import skinsImg from "../../assets/features/skins.webp";
@@ -25,6 +26,7 @@ const imageMap: Record<string, ImageMetadata> = {
   structures: structuresImg,
   "end-structures": endStructuresImg,
   jobs: jobsImg,
+  cookery: cookeryImg,
   aircraft: aircraftImg,
   "trade-cycling": tradeCyclingImg,
   skins: skinsImg,
@@ -40,6 +42,7 @@ const iconMap: Record<FeatureIcon, string> = {
   end: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
   jobs:
     '<path d="m14 13-7.5 7.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/>',
+cookery: '<path d="M6 18h12a2 2 0 0 1 2 2v1H4v-1a2 2 0 0 1 2-2Z"/><path d="M12 2a5 5 0 0 0-4.9 4.1 3.5 3.5 0 0 0-2.6 3.4 4 4 0 0 0 3 3.9V18h9v-4.6a4 4 0 0 0 3-3.9 3.5 3.5 0 0 0-2.6-3.4A5 5 0 0 0 12 2Z"/>',
   aircraft:
     '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
   trade:
